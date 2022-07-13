@@ -13,6 +13,7 @@ const colorEl = document.querySelector('.color');
 changeColorEl.addEventListener('click', bgColorChange);
 
 function bgColorChange() {
-    bodyEl.style.backgroundColor = `${getRandomHexColor()}`;
-    colorEl.textContent = getRandomHexColor();
+    const randomColor = getRandomHexColor();
+    bodyEl.style.backgroundColor = randomColor;
+    colorEl.textContent = randomColor;
 }

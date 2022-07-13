@@ -13,15 +13,14 @@ const images = [
     },
 ];
 
-const galleryEl = ({ url, alt }) =>
-    `<li><img src="${url}" alt="${alt}"></li>`;
-
-const galleryMarkup = images.reduce((acc, item) => acc + galleryEl(item), '');
+const galleryMarkup = images
+    .map(function ({ url, alt }) {
+        return `<li><img src = '${url}' alt = '${alt}' width='320'></li>`;
+    })
+    .join('');
 
 const galleryList = document.querySelector('.gallery');
 
 galleryList.insertAdjacentHTML('afterbegin', galleryMarkup);
 
-galleryList.setAttribute('style', 'display: flex');
-
-
+galleryList.style.cssText = `display: flex; list-style-type: none`;
